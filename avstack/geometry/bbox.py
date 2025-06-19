@@ -486,7 +486,7 @@ class Box3D:
     @property
     def hwl(self):
         return self.size
-    
+
     @property
     def lwh(self):
         return list(reversed(self.hwl))

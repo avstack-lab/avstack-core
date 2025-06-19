@@ -48,6 +48,7 @@ carla_clases = [
     ("motorcycle", ["motorcycle"], ("ignore", ignore_classes)),
 ]
 
+rccars_oneclass_classes = [("car", car_classes)]
 coco_person_classes = [("person", ped_classes)]
 coco_classes = [("person", ped_classes), ("car", car_classes), ("bicycle", bic_classes)]
 
@@ -59,6 +60,7 @@ class_maps = {
     "carla-joint": {k: ks[0] for ks in carla_clases for k in ks[1]},
     "carla-vehicle": {k: ks[0] for ks in carla_clases for k in ks[1]},
     "carla-infrastructure": {k: ks[0] for ks in carla_clases for k in ks[1]},
+    "rccars-oneclass": {k: ks[0] for ks in rccars_oneclass_classes for k in ks[1]},
     "coco-person": {k: ks[0] for ks in coco_person_classes for k in ks[1]},
     "coco": {k: ks[0] for ks in coco_classes for k in ks[1]},
 }

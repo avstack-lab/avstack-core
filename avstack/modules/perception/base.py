@@ -281,6 +281,9 @@ class _MMObjectDetector(_MMBase):
         ]:
             all_objs = ["car", "bicycle", "truck", "motorcycle"]
             whitelist = all_objs
+        elif dataset == "rccars-oneclass":
+            all_objs = ["car"]
+            whitelist = all_objs
         elif dataset == "cityscapes":
             all_objs = [
                 "person",
