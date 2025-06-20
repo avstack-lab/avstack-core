@@ -198,7 +198,7 @@ class _MMObjectDetector(_MMBase):
                 chk_path = os.path.join(mm2d_root, checkpoint_file)
         if not os.path.exists(chk_path):
             raise FileNotFoundError(
-                f"Cannot find {checkpoint_file} checkpoint, mm3d root: {mm3d_root}, mm2d root: {mm2d_root}"
+                f"Cannot find {checkpoint_file} checkpoint\n(tried {chk_path})\nmm3d root: {mm3d_root}\nmm2d root: {mm2d_root}"
             )
 
         # set up inference model settings

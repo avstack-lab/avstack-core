@@ -11,7 +11,7 @@ except ModuleNotFoundError:
 try:
     from midas.model_loader import load_model
 except ModuleNotFoundError:
-    print("MIDAS module not found.")
+    print("MIDAS module not found (this is not an error).")
 
 from avstack import __file__ as avfile
 from avstack.config import MODELS
