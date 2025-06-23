@@ -367,6 +367,27 @@ class ReferenceFrame:
         )
         return ref_new
 
+    def get_static_reference(self):
+        # integrate reference frame
+        if self == GlobalOrigin3D:
+            return self
+        elif self.reference != GlobalOrigin3D:
+            ref = self.integrate(start_at=GlobalOrigin3D)
+        else:
+            ref = self
+
+        # set new reference without velocity
+        ref_new = ReferenceFrame(
+            x=ref.x,
+            q=ref.q,
+            reference=ref.reference,
+            from_frame=self.from_frame,
+            to_frame=self.to_frame + "/static",
+            timestamp=self.timestamp,
+        )
+
+        return ref_new
+
     def encode(self):
         return json.dumps(self, cls=ReferenceEncoder)
 
