@@ -233,7 +233,6 @@ class _TrackingAlgorithm(BaseModule):
         platform: ReferenceFrame,
         change_in_place=False,
         trks_observable: List = None,
-        check_reference: bool = True,
         *args,
         **kwargs,
     ):
@@ -250,7 +249,7 @@ class _TrackingAlgorithm(BaseModule):
 
         # -- propagation
         tracks_active = self.predict_tracks(
-            t, platform=platform, check_reference=check_reference
+            t, platform=platform, check_reference=self.check_reference
         )
         if not trks_observable:
             trks_observable = tracks_active
@@ -269,7 +268,7 @@ class _TrackingAlgorithm(BaseModule):
                 detections = {"sensor_1": detections}
             for sensor, dets in detections.items():
                 # -- change to platform reference
-                if platform and check_reference:
+                if platform and self.check_reference:
                     if not change_in_place:
                         dets = [
                             det.change_reference(platform, inplace=False)
