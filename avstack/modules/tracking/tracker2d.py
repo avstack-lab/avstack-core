@@ -24,14 +24,14 @@ class PassthroughTracker2D(_TrackingAlgorithm):
             trk = BasicBoxTrack2D(
                 t0=detections.timestamp,
                 box2d=det.box2d,
+                reference=platform,
                 obj_type=det.obj_type,
                 ID_force=None,
                 v=None,
                 P=np.eye(6),  # fake this
                 t=detections.timestamp,
-                coast=0,
+                dt_coast=0,
                 n_updates=1,
-                age=1,
             )
             tracks.append(trk)
         return tracks
