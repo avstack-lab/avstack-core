@@ -96,6 +96,9 @@ download_models "coco" "v2.0" "cascade_rcnn" "$COCO_CMRCNN"
 # CARLA_CRCNN_INF="cascade-rcnn_r50_fpn_1x_carla_infrastructure"
 # download_custom_models "carla" "carla" "$CARLA_CRCNN_INF"
 
+RCCARS_RTMDET="rtmdet_m_8xb32-300e_rccars-oneclass"
+download_custom_models "rccars" "rccars" "$RCCARS_RTMDET"
+
 
 echo "Adding symbolic link to mmdet directory"
 ln -sfnT $(realpath "$MMDET_CKPT") "$THISDIR/../third_party/mmdetection/checkpoints"

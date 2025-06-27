@@ -7,7 +7,13 @@ import avstack
 
 from . import transformations as tforms
 from .base import q_mult_vec
-from .refchoc import ReferenceDecoder, ReferenceFrame, PassiveReferenceFrame, Rotation, Vector
+from .refchoc import (
+    PassiveReferenceFrame,
+    ReferenceDecoder,
+    ReferenceFrame,
+    Rotation,
+    Vector,
+)
 
 
 class VectorDecoder(json.JSONDecoder):
@@ -71,7 +77,9 @@ class RotationDecoder(json.JSONDecoder):
 
 
 class Position(Vector):
-    def _pull_from_reference(self, reference: Union[ReferenceFrame, PassiveReferenceFrame]):
+    def _pull_from_reference(
+        self, reference: Union[ReferenceFrame, PassiveReferenceFrame]
+    ):
         return reference.x
 
     @property
@@ -84,7 +92,9 @@ class Position(Vector):
 
 
 class Velocity(Vector):
-    def _pull_from_reference(self, reference: Union[ReferenceFrame, PassiveReferenceFrame]):
+    def _pull_from_reference(
+        self, reference: Union[ReferenceFrame, PassiveReferenceFrame]
+    ):
         return reference.v
 
     @staticmethod
@@ -93,7 +103,9 @@ class Velocity(Vector):
 
 
 class Acceleration(Vector):
-    def _pull_from_reference(self, reference: Union[ReferenceFrame, PassiveReferenceFrame]):
+    def _pull_from_reference(
+        self, reference: Union[ReferenceFrame, PassiveReferenceFrame]
+    ):
         return reference.acc
 
     @staticmethod
@@ -102,7 +114,9 @@ class Acceleration(Vector):
 
 
 class Attitude(Rotation):
-    def _pull_from_reference(self, reference: Union[ReferenceFrame, PassiveReferenceFrame]):
+    def _pull_from_reference(
+        self, reference: Union[ReferenceFrame, PassiveReferenceFrame]
+    ):
         return reference.q
 
     @staticmethod
@@ -111,7 +125,9 @@ class Attitude(Rotation):
 
 
 class AngularVelocity(Rotation):
-    def _pull_from_reference(self, reference: Union[ReferenceFrame, PassiveReferenceFrame]):
+    def _pull_from_reference(
+        self, reference: Union[ReferenceFrame, PassiveReferenceFrame]
+    ):
         return reference.ang
 
     @staticmethod

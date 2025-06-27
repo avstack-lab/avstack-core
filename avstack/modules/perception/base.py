@@ -65,7 +65,7 @@ class _MMBase(_PerceptionAlgorithm):
                 chk_path = f.readlines()[0].rstrip()
             return chk_path
         else:
-            return None
+            return ""
 
     def parse_mm_model(self):
         raise NotImplementedError("Implement this in the subclass.")

@@ -176,9 +176,9 @@ class MMDetObjectDetector2D(_MMObjectDetector):
                 checkpoint_file = "checkpoints/coco/rtmdet_m_8xb32-300e_coco_20220719_112220-229f527c.pth"
             elif dataset == "rccars-oneclass":
                 threshold = 0.5
-                config_file = "configs/rccars/rtmdet_m_8xb32-300e_rccars-oneclass.py"
+                config_file = "work_dirs/rccars/rtmdet_m_8xb32-300e_rccars-oneclass.py"
                 checkpoint_file = (
-                    f"work_dirs/rtmdet_m_8xb32-300e_rccars-oneclass/{epoch_str}.pth"
+                    f"work_dirs/rccars/rtmdet_m_8xb32-300e_rccars-oneclass.pth"
                 )
             else:
                 raise NotImplementedError(f"{model}, {dataset} not compatible yet")
