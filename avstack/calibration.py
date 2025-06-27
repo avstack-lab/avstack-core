@@ -1,10 +1,15 @@
 from __future__ import annotations
 
 import json
+from typing import Union
 
 import numpy as np
 
-from avstack.geometry.refchoc import ReferenceDecoder, ReferenceFrame
+from avstack.geometry.refchoc import (
+    PassiveReferenceFrame,
+    ReferenceDecoder,
+    ReferenceFrame,
+)
 
 
 class CalibrationEncoder(json.JSONEncoder):
@@ -161,7 +166,7 @@ class RadarCalibration(Calibration):
 class CameraCalibration(Calibration):
     def __init__(
         self,
-        reference: ReferenceFrame,
+        reference: Union[PassiveReferenceFrame, ReferenceFrame],
         P: np.ndarray,
         img_shape: tuple,
         focal_length: float = None,

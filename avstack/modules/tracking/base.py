@@ -1,5 +1,5 @@
 import datetime
-from typing import List
+from typing import List, Union
 
 import numpy as np
 
@@ -95,7 +95,12 @@ class _TrackingAlgorithm(BaseModule):
         return DataContainer(self.frame, self.timestamp, trks_active, self.name)
 
     @apply_hooks
-    def __call__(self, detections, platform: ReferenceFrame, **kwargs):
+    def __call__(
+        self,
+        detections,
+        platform: Union[PassiveReferenceFrame, ReferenceFrame],
+        **kwargs,
+    ):
         if not isinstance(detections, DataContainer):
             raise ValueError(
                 f"Detections are {type(detections)}, must be DataContainer"

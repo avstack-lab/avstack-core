@@ -40,7 +40,7 @@ def test_ci_fusion_base_naive_bayes():
     assert np.allclose(P_f, P)
 
 
-def test_fusion_into_boxtrack():
+def test_fusion_into_BoxTrack3D():
     tracks = get_n_tracks(n_tracks=4)
     fuser = fusion.CovarianceIntersectionFusionToBox()
     fused_out = fuser(tracks)
