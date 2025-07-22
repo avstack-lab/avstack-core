@@ -163,6 +163,12 @@ class Shape:
 
     def check_points(self, point: np.ndarray) -> np.ndarray[bool]:
         raise NotImplementedError
+    
+    def intersects(self, other: "Shape") -> bool:
+        raise NotImplementedError
+    
+    def intersection(self, other: "Shape") -> float:
+        raise NotImplementedError
 
 
 @GEOMETRY.register_module()
@@ -218,6 +224,12 @@ class Polygon(Shape):
     def distance_points(self, points: np.ndarray) -> np.ndarray[float]:
         """Checks distance of a batch of points"""
         return np.array([self.distance_point(point) for point in points])
+    
+    def intersects(self, other: "Polygon") -> bool:
+        return self.polygon.intersects(other.polygon)
+    
+    def intersection(self, other: "Polygon") -> float:
+        return self.polygon.intersection(other.polygon)
 
     def encode(self):
         return json.dumps(self, cls=FieldOfViewEncoder)
